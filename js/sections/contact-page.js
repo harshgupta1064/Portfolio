@@ -49,18 +49,24 @@ export function renderContactPage() {
           </a>
         </div>
 
-        <form class="contact-form" id="contact-form">
+        <form class="contact-form" id="contact-form" novalidate>
           <h3>Send a message</h3>
           <p class="form-note">${contactPage.formNote}</p>
+          <div class="form-status" id="form-status" role="status" aria-live="polite" hidden></div>
+          <input type="text" name="_honey" class="form-honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <div class="form-row">
             <label for="sender-name">Name</label>
-            <input type="text" id="sender-name" placeholder="Your name" required />
+            <input type="text" id="sender-name" name="name" placeholder="Your name" required />
+          </div>
+          <div class="form-row">
+            <label for="sender-email">Email</label>
+            <input type="email" id="sender-email" name="email" placeholder="you@example.com" required />
           </div>
           <div class="form-row">
             <label for="message">Message</label>
-            <textarea id="message" rows="5" placeholder="Your message..." required></textarea>
+            <textarea id="message" name="message" rows="5" placeholder="Your message..." required></textarea>
           </div>
-          <button type="submit" class="btn btn-primary btn-lg">Send Email</button>
+          <button type="submit" class="btn btn-primary btn-lg" id="form-submit-btn">Send Message</button>
         </form>
       </div>
     </div>

@@ -3,6 +3,7 @@ export const contactPage = {
   subheadline:
     "Open to robotics, perception, computer vision, and ML engineering roles — internships, collaborations, and research.",
   availability: "Available for opportunities",
+  formEndpoint: "https://formsubmit.co/ajax",
   formNote:
-    "This form opens your email client. For a live form, connect Formspree or similar in contact.html.",
+    "Messages are sent directly to my inbox. You'll get a confirmation once it's delivered.",
 };
