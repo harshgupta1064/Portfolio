@@ -42,6 +42,7 @@ function initScrollReveal() {
     ".about-content p",
     ".contact-strip",
     ".timeline-card",
+    ".project-showcase",
     ".project-card",
     ".skill-snap",
     ".coursework-line",

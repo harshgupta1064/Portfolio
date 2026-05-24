@@ -574,54 +574,158 @@ main {
 }
 
 /* Projects */
+.projects-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.project-showcase {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.35fr);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-showcase:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-lg);
+}
+
+.project-media {
+  position: relative;
+  background: #0a1018;
+  min-height: 220px;
+}
+
+.project-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 70%,
+    rgba(221, 228, 237, 0.15) 100%
+  );
+  pointer-events: none;
+}
+
+.project-video {
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.project-showcase-body {
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.project-showcase-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.project-badge {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid rgba(15, 118, 110, 0.35);
+}
+
+.project-showcase-body h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.25rem;
 }
 
 .project-card {
-  padding: 1.5rem;
+  padding: 1.35rem 1.5rem;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
   transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .project-card:hover {
   border-color: var(--accent);
   box-shadow: var(--shadow-md);
-  transform: translateY(-4px);
+  transform: translateY(-3px);
 }
 
-.project-card.featured {
-  border-top: 3px solid var(--accent);
-}
-
-.project-card-header {
+.project-card-top {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 1rem;
-  margin-bottom: 0.75rem;
 }
 
-.project-card-header h3 {
-  font-size: 1.05rem;
+.project-card-top h3 {
+  font-size: 1.02rem;
   font-weight: 600;
+  line-height: 1.35;
+}
+
+.project-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
 }
 
 .project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
   color: var(--text-muted);
+  padding: 0.25rem 0.45rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.project-link span {
+  line-height: 1;
+}
+
+.project-link:hover {
+  color: var(--accent);
+  border-color: rgba(15, 118, 110, 0.45);
+  background: var(--accent-dim);
 }
 
 .project-desc {
   font-size: 0.92rem;
   color: var(--text-muted);
-  margin-bottom: 0.5rem;
 }
 
 /* Skills — quick-scan snapshot */
@@ -1044,6 +1148,7 @@ main {
 
   .timeline-card:hover,
   .project-card:hover,
+  .project-showcase:hover,
   .skill-snap:hover,
   .contact-cta:hover {
     transform: none;
@@ -1100,6 +1205,27 @@ main {
 
   .contact-profile-card {
     position: static;
+  }
+
+  .project-showcase {
+    grid-template-columns: 1fr;
+  }
+
+  .project-media::after {
+    background: linear-gradient(
+      180deg,
+      transparent 60%,
+      rgba(221, 228, 237, 0.2) 100%
+    );
+  }
+
+  .project-video {
+    min-height: 200px;
+    max-height: 280px;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
   }
 }
 
